@@ -8,12 +8,15 @@ def isPalindrome(sequence):
     end = len(sequence)-1
     pali = True
     while pali:
+        #ignore special characters at start
         if not sequence[start].isalnum():
             start = start + 1
             continue
+        # ignore special characters at end
         if not sequence[end].isalnum():
             end = end - 1
             continue
+        #Check if the character matches
         if sequence[start].lower() == sequence[end].lower():
             if start == end:
                 break
