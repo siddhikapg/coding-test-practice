@@ -1,30 +1,28 @@
 def main():
     print("Hello worldss")
-    ans = isAnagram("fairy tales", "rail safety")
+    ans = isPermutation("google","eooggl")
+    print(ans)
+    ans = isPermutation("not", "top")
     print(ans)
 # Time Complexity: O(n)
 # Space Complexity: O(n)
-def isAnagram(s1,s2):
+def isPermutation(s1, s2):
     if len(s1) != len(s2):
         return False
+    s1 = s1.lower()
+    s2 = s2.lower()
+
     letters = dict()
 
-    #Parse s1
     for l in s1:
         if l in letters:
             letters[l] += 1
         else:
             letters[l] = 1
-
-    #Parse s2
     for l in s2:
         if l in letters:
             letters[l] -= 1
         else:
-            letters[l] = 1
-    #Check dictionary for dicrepancies
-    for l in letters:
-        if letters[l] != 0:
             return False
     return True
 if __name__ == '__main__':
